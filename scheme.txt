@@ -1,6 +1,11 @@
 1. A revision on Java
 2. User Interface
+	a. dialogs
+	b. form controls
 3. Android Fundamentals
+	a. notifications
+	b. shared preferences
+	c. file handling
 4. Navigation
 5. Project
 6. Animations and Transitions
