@@ -15,6 +15,6 @@
 10. Background Tasks
 11. Networking - Web Services
 12. Media Handling
-13. Testing android apps
+13. Firebase
 14. Google Geolocation API
 15. Sensors
