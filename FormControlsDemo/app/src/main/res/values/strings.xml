@@ -1,0 +1,9 @@
+<resources>
+  <string name="app_name">Form Controls Demo</string>
+  <string name="username_text">Username</string>
+  <string name="password_text">Password</string>
+  <string name="male_text">Male</string>
+  <string name="female_text">Female</string>
+  <string name="married_tex">Married</string>
+  <string name="submit">Submit</string>
+</resources>
