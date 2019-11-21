@@ -49,14 +49,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         _username = username.getText().toString();
         _pwd = pwd.getText().toString();
-        married = marriedCheckbox.isSelected();
+        married = marriedCheckbox.isChecked();
 
         if (_username.isEmpty() ||  _pwd.isEmpty()) {
             Toast.makeText(this, "Empty text fields!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        int id = group.getCheckedRadioButtonId();
+            int id = group.getCheckedRadioButtonId();
         switch (id) {
             case R.id.male_radio_btn:
                 gender = "Male";
