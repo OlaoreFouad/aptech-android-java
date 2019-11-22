@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">Login</string>
+  <string name="forgot_password_text">Forgot Password?</string>
+  <string name="sign_in_to_your_fitbod_account">Sign in with your\n Fitbod account:</string>
+</resources>
