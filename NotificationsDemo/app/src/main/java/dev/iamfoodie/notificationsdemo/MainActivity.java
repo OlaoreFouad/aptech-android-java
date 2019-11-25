@@ -2,6 +2,7 @@ package dev.iamfoodie.notificationsdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText title, description;
     private Button notifyButton;
+    private NotificationManagerCompat managerCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +27,6 @@ public class MainActivity extends AppCompatActivity {
         title = findViewById(R.id.title_edit_text);
         description = findViewById(R.id.description_edit_text);
         notifyButton = findViewById(R.id.notify_button);
-
-        notifyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showNotification();
-            }
-        });
     }
 
     private void showNotification() {
@@ -42,18 +37,5 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Empty fields!", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_launcher_background)
-                .setContentTitle(titleValue)
-                .setContentText(descValue)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-        manager.notify(0, builder.build());
-
-        Log.d("MainActivity", "showNotification: is shown!");
-
     }
-
-
 }

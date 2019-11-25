@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">Notifications Demo</string>
+  <string name="title_text">Title</string>
+  <string name="content_text">Content</string>
+  <string name="send_on_channel_one_text">Send On Channel 1</string>
+  <string name="send_on_channel_two_text">Send On Channel 2</string>
+</resources>

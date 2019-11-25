@@ -33,13 +33,12 @@
 	<EditText
 	  android:id="@+id/description_edit_text"
 	  android:layout_width="match_parent"
-	  android:layout_height="wrap_content"
+	  android:layout_height="200dp"
+	  android:inputType="textMultiLine"
 	  android:layout_marginLeft="20dp"
 	  android:layout_marginTop="10dp"
 	  android:layout_marginRight="20dp"
-	  android:height="200dp"
-	  android:hint="@string/description"
-	  android:inputType="textMultiLine" />
+	  android:hint="@string/description" />
 
 	<Button
 	  style="@style/Widget.AppCompat.Button.Colored"

@@ -3,5 +3,6 @@
   <string name="title_text">Title</string>
   <string name="description">Description</string>
   <string name="notifications">Notifications</string>
-  <string name="notify_text">Notify</string>
+  <string name="notify_text">Notify on Channel 1</string>
+  <string name="notify_text_two">Notify on Channel 2</string>
 </resources>
