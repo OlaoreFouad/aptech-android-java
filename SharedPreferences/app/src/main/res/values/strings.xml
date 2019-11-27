@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">Shared Prefrences</string>
+  <string name="preference_key_text">Preference Key</string>
+  <string name="preference_val_text">Preference Value</string>
+  <string name="save_text">Save</string>
+  <string name="get_text">Get</string>
+</resources>
