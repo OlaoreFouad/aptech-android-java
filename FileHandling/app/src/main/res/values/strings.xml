@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">File Handling</string>
+  <string name="filename_text">Filename</string>
+  <string name="content_text">Content</string>
+  <string name="save_text">Save</string>
+  <string name="get_text">Get</string>
+</resources>
