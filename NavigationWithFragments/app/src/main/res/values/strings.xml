@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">Navigation With Fragments</string>
+  <string name="fragment_one_text">Fragment One</string>
+  <string name="enter_text_text">Enter text</string>
+  <string name="send_text">Send</string>
+  <string name="fragment_two_text">Fragment Two</string>
+  <string name="back_text">Back</string>
+</resources>
