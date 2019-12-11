@@ -15,6 +15,7 @@ import dev.iamfoodie.bottomnavigationview.fragments.MessagesFragment;
 import dev.iamfoodie.bottomnavigationview.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
+
     private BottomNavigationView mBottomNavigationView;
 
     @Override
@@ -26,15 +27,21 @@ public class MainActivity extends AppCompatActivity {
         mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                Fragment fragment = null;
+
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-                        setFragment(new HomeFragment(), "fragmentHome", false);
+                        fragment = new HomeFragment();
+                        setFragment(fragment, "fragmenthome", false);
                         break;
                     case R.id.nav_messages:
-                        setFragment(new MessagesFragment(), "fragmentMessages", false);
+                        fragment = new MessagesFragment();
+                        setFragment(fragment, "fragmentMessages", false);
                         break;
                     case R.id.nav_profile:
-                        setFragment(new ProfileFragment(), "fragmentProfile", false);
+                        fragment = new ProfileFragment();
+                        setFragment(fragment, "fragmentProfile", false);
                         break;
                 }
                 return true;
@@ -42,11 +49,6 @@ public class MainActivity extends AppCompatActivity {
         });
         mBottomNavigationView.setSelectedItemId(R.id.nav_home);
 
-    }
-
-    private void init() {
-        HomeFragment homeFragment = new HomeFragment();
-        setFragment(homeFragment, "fragmentHome", false);
     }
 
     private void setFragment(Fragment fragment, String tag, boolean addToBackStack) {
