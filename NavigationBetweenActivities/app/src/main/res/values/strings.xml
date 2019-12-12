@@ -3,4 +3,5 @@
   <string name="enter_text">Enter text</string>
   <string name="send_text">Send</string>
   <string name="send_back_text">Send Back</string>
+  <string name="send_text_result">Send For Result</string>
 </resources>

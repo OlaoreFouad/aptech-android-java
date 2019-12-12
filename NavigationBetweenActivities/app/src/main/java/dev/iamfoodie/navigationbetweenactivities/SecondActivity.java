@@ -14,8 +14,6 @@ public class SecondActivity extends AppCompatActivity {
 
     private ImageView backButton;
     private TextView sentText;
-    private EditText textToBeSentEditText;
-    private Button goBackButton;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,9 +22,6 @@ public class SecondActivity extends AppCompatActivity {
 
         backButton = findViewById(R.id.back_button);
         sentText = findViewById(R.id.sent_text);
-        textToBeSentEditText = findViewById(R.id.text_to_send_edit_text);
-        goBackButton = findViewById(R.id.go_back_button);
-
         Intent launchedIntent = getIntent();
         Bundle extras = launchedIntent.getExtras();
 
