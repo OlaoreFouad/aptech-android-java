@@ -14,10 +14,12 @@ import androidx.fragment.app.Fragment;
 import dev.iamfoodie.tablayoutdemo.R;
 import dev.iamfoodie.tablayoutdemo.listeners.OnFragmentNavigatedListener;
 
-public class StatusFragment extends Fragment implements View.OnClickListener {
+public class StatusFragment extends Fragment
+//        implements View.OnClickListener
+{
 
-    private Button prevButton, nextButton;
-    private OnFragmentNavigatedListener mOnFragmentNavigatedListener;
+//    private Button prevButton, nextButton;
+//    private OnFragmentNavigatedListener mOnFragmentNavigatedListener;
 
     @Nullable
     @Override
@@ -28,14 +30,14 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        nextButton = view.findViewById(R.id.next_button_from_status);
+        /*nextButton = view.findViewById(R.id.next_button_from_status);
         prevButton = view.findViewById(R.id.prev_button);
 
         nextButton.setOnClickListener(this);
-        prevButton.setOnClickListener(this);
+        prevButton.setOnClickListener(this);*/
     }
 
-    @Override
+    /*@Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         mOnFragmentNavigatedListener = (OnFragmentNavigatedListener) context;
@@ -51,5 +53,5 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
                 mOnFragmentNavigatedListener.nextFragment("fragmentCalls");
                 break;
         }
-    }
+    }*/
 }

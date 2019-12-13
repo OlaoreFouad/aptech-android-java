@@ -7,9 +7,18 @@
   android:orientation="vertical"
   tools:context=".MainActivity">
 
-  <FrameLayout
+  <com.google.android.material.tabs.TabLayout
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:id="@+id/fragment_container"/>
+	android:layout_height="wrap_content"
+	app:tabBackground="@color/colorPrimaryDark"
+	app:tabSelectedTextColor="@android:color/white"
+	app:tabIndicatorColor="@android:color/white"
+	android:id="@+id/tab_layout"/>
+
+  <androidx.viewpager.widget.ViewPager
+	android:layout_width="match_parent"
+	android:id="@+id/view_pager"
+	android:layout_weight="1"
+	android:layout_height="0dp"/>
 
 </LinearLayout>

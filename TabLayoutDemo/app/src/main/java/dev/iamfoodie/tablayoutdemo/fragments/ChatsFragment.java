@@ -16,8 +16,8 @@ import dev.iamfoodie.tablayoutdemo.listeners.OnFragmentNavigatedListener;
 
 public class ChatsFragment extends Fragment {
 
-    private Button nextButton;
-    private OnFragmentNavigatedListener mOnFragmentNavigatedListener;
+//    private Button nextButton;
+//    private OnFragmentNavigatedListener mOnFragmentNavigatedListener;
 
     @Nullable
     @Override
@@ -27,18 +27,18 @@ public class ChatsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        nextButton = view.findViewById(R.id.next_button);
+        /*nextButton = view.findViewById(R.id.next_button);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mOnFragmentNavigatedListener.nextFragment("fragmentStatus");
             }
-        });
+        });*/
     }
 
-    @Override
+    /*@Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         mOnFragmentNavigatedListener = (OnFragmentNavigatedListener) context;
-    }
+    }*/
 }
