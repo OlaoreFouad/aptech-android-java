@@ -53,6 +53,6 @@ public class Post {
     @NonNull
     @Override
     public String toString() {
-        return "Id: " + getId() + "Title: " + getTitle() + " Content: " + getContent();
+        return "Id: " + getId()  + "\nUser Id: " + getUserId() + "\nTitle: " + getTitle() + "\nContent: " + getContent();
     }
 }

@@ -4,6 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -33,6 +37,81 @@ public class MainActivity extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
         getPosts();
+
+        Button sendReqButton = findViewById(R.id.send_req_button);
+        EditText postIdEditText = findViewById(R.id.id_edit_text);
+        sendReqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!postIdEditText.getText().toString().isEmpty()) {
+                    int postId = Integer.parseInt(postIdEditText.getText().toString());
+                    getPost(postId);
+                }
+            }
+        });
+
+        Button userSendReqButton = findViewById(R.id.send_req_button_user_id);
+        EditText userIdEditText = findViewById(R.id.user_id_edit_text);
+        userSendReqButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!userIdEditText.getText().toString().isEmpty()) {
+                    int userId = Integer.parseInt(userIdEditText.getText().toString());
+                    getPostsByUser(userId);
+                }
+            }
+        });
+
+    }
+
+    private void getPost(int postId) {
+        TextView result = findViewById(R.id.text_result);
+
+        apiService.getPost(postId).enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+
+                int statusCode = response.code();
+                Post post = response.body();
+
+                result.setText("");
+                result.append("Status Code: " + statusCode + "\n");
+                result.append(post.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                result.setText("Error: " + t.getMessage());
+            }
+        });
+
+    }
+
+    private void getPostsByUser(int userId) {
+        TextView userTextResult = findViewById(R.id.user_id_text_result);
+
+        apiService.getPostsByUser(userId).enqueue(new Callback<List<Post>>() {
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+
+                int statusCode = response.code();
+                if (!response.isSuccessful()) {
+                    userTextResult.setText("Status Code: " + statusCode);
+                    return;
+                }
+
+                userTextResult.setText("");
+                List<Post> postsByUser = response.body();
+                userTextResult.append("Status Code: " + statusCode + "\n");
+                userTextResult.append("Number Of Posts By UserId " + userId + " is: " + postsByUser.size());
+            }
+
+            @Override
+            public void onFailure(Call<List<Post>> call, Throwable t) {
+                userTextResult.setText("Error: " + t.getMessage());
+            }
+        });
 
     }
 
