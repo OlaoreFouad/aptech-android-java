@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import dev.olaore.apiconsumption.models.Post;
 import retrofit2.Call;
@@ -37,6 +39,23 @@ public class MainActivity extends AppCompatActivity {
         apiService = retrofit.create(ApiService.class);
 
         getPosts();
+
+        Post post = new Post(2, "Posted Title", "Post Content");
+        apiService.addPost(post).enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                int statusCode = response.code();
+                Post returnedPost = response.body();
+
+                Log.d(TAG, "Status Code: " + statusCode + "\nPost: " + returnedPost.toString());
+
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                Log.d(TAG, "Error: " + t.getMessage());
+            }
+        });
 
         Button sendReqButton = findViewById(R.id.send_req_button);
         EditText postIdEditText = findViewById(R.id.id_edit_text);
@@ -128,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 List<Post> posts = response.body();
                 Log.d(TAG, "Posts size: " + posts.size());
                 for (Post post: posts) {
-                    Log.d(TAG, post.toString());
+//                    Log.d(TAG, post.toString());
                 }
 
             }
