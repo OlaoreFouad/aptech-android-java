@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,31 +34,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Gson gson = new GsonBuilder().serializeNulls().excludeFieldsWithoutExposeAnnotation().create();
+
         retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
         apiService = retrofit.create(ApiService.class);
 
-        getPosts();
+//        getPosts();
 
         Post post = new Post(2, "Posted Title", "Post Content");
-        apiService.addPost(post).enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                int statusCode = response.code();
-                Post returnedPost = response.body();
-
-                Log.d(TAG, "Status Code: " + statusCode + "\nPost: " + returnedPost.toString());
-
-            }
-
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.d(TAG, "Error: " + t.getMessage());
-            }
-        });
+//        apiService.addPost(post).enqueue(new Callback<Post>() {
+//            @Override
+//            public void onResponse(Call<Post> call, Response<Post> response) {
+//                int statusCode = response.code();
+//                Post returnedPost = response.body();
+//
+//                Log.d(TAG, "Status Code: " + statusCode + "\nPost: " + returnedPost.toString());
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Post> call, Throwable t) {
+//                Log.d(TAG, "Error: " + t.getMessage());
+//            }
+//        });
 
         Button sendReqButton = findViewById(R.id.send_req_button);
         EditText postIdEditText = findViewById(R.id.id_edit_text);
@@ -81,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        getPost(4);
+
     }
 
     private void getPost(int postId) {
@@ -93,9 +100,30 @@ public class MainActivity extends AppCompatActivity {
                 int statusCode = response.code();
                 Post post = response.body();
 
-                result.setText("");
-                result.append("Status Code: " + statusCode + "\n");
-                result.append(post.toString());
+//                result.setText("");
+//                result.append("Status Code: " + statusCode + "\n");
+//                result.append(post.toString());
+
+                post.setTitle("This is a new post - updated from Android Pixel");
+                post.setContent("This is new content - take it or leave it!");
+
+                apiService.putPost(post, postId).enqueue(new Callback<Post>() {
+                    @Override
+                    public void onResponse(Call<Post> call, Response<Post> response) {
+                        // add some code
+
+                        int code = response.code();
+                        Post updatedPost = response.body();
+
+                        Log.d(TAG, "Status Code: " + code + " Post: " + updatedPost.toString());
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Post> call, Throwable t) {
+                        Log.d(TAG, "Message: " + t.getMessage());
+                    }
+                });
 
             }
 

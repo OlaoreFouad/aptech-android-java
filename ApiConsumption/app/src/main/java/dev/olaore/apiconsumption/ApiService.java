@@ -6,7 +6,9 @@ import dev.olaore.apiconsumption.models.Post;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -28,6 +30,16 @@ public interface ApiService {
     @POST("posts")
     Call<Post> addPost(
            @Body Post post
+    );
+
+    @PUT("posts/{postId}")
+    Call<Post> putPost(
+        @Body Post updatedPost, @Path("postId") int postId
+    );
+
+    @PATCH("posts/{postId}")
+    Call<Post> patchPost(
+            @Body Post updatedPost, @Path("postId") int postId
     );
 
     // baseUrl/posts?userId=4

@@ -2,16 +2,23 @@ package dev.olaore.apiconsumption.models;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Post {
 
+    @Expose
     private int id;
 
+    @Expose(deserialize = false)
     private int userId;
 
+    @Expose
     private String title;
 
+    private Integer amountOfGirlfriends = null;
+
+    @Expose
     @SerializedName("body")
     private String content;
 
