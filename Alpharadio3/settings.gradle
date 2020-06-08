@@ -1,0 +1,2 @@
+rootProject.name='Alpharadio3'
+include ':app'
