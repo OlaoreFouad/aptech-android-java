@@ -1,3 +1,7 @@
 <resources>
   <string name="app_name">MVVM Demo</string>
+  <string name="deals_title_placeholder">Deals Title</string>
+  <string name="deals_desc_placeholder">Deals description goes here</string>
+  <string name="bought_animal_for_certain_amount">Bought <b>%s</b> for certain <b>%s</b></string>
+  <string name="time_placeholder">21:05</string>
 </resources>

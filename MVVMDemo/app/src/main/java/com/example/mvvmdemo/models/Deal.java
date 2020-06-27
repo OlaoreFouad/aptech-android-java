@@ -27,6 +27,7 @@ public class Deal {
         this.createdOn = System.currentTimeMillis();
     }
 
+    @Ignore
     public Deal(String title, String description, String animal, int amount) {
         this.title = title;
         this.description = description;
@@ -66,5 +67,21 @@ public class Deal {
 
     public long getCreatedOn() {
         return createdOn;
+    }
+
+    public void setCreatedOn(long createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public void setAnimal(String animal) {
+        this.animal = animal;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
